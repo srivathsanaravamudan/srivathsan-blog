@@ -17,15 +17,15 @@
       <h2>Agents Should Mimic the Human Brain</h2>
       <time>June 2026</time>
 
-      <p>Most teams build agents that answer questions. I think that's the wrong unit of design. An agent should own an end-to-end business function — from input to outcome — the way a skilled employee does. That shift in framing changes every architectural decision that follows.</p>
+      <p>We are in the era of autonomous agents. The question is no longer whether agents can handle tasks — it is whether they can own them. An agent should own an end-to-end business function — from input to outcome — the way a skilled employee does. That shift in framing changes every architectural decision that follows.</p>
 
       <p>It also raises a harder question: what architecture actually supports that level of ownership? The answer is neuro-symbolic AI. And the reason comes down to how the human brain works.</p>
 
       <h3>The brain runs two systems</h3>
 
-      <p>Cognitive science describes thinking in two modes. System 1 is fast and intuitive — pattern recognition, language, gut feel. System 2 is slow and deliberate — logical reasoning, rule application, planning. A skilled employee uses both, switching fluidly based on what the situation demands.</p>
+      <p>Cognitive science calls this Dual Process Theory, introduced by Daniel Kahneman in <em>Thinking, Fast and Slow</em>. Type 1 thinking is fast, automatic, and intuitive — pattern recognition, language, gut feel. Type 2 thinking is slow, deliberate, and analytical — logical reasoning, rule application, planning. A skilled employee uses both, switching fluidly based on what the situation demands.</p>
 
-      <p>AI has historically been one or the other. Neural networks are System 1. They recognize patterns at scale but hallucinate and drift without guardrails. Classical expert systems are System 2. They reason precisely but break on anything outside their encoded rules. Neither alone handles the full range of a real business function.</p>
+      <p>AI has historically been one or the other. Neural networks are Type 1. They recognize patterns at scale but hallucinate and drift without guardrails. Classical expert systems are Type 2. They reason precisely but break on anything outside their encoded rules. Neither alone handles the full range of a real business function.</p>
 
       <h3>Neuro-symbolic agents use both</h3>
 
@@ -33,13 +33,19 @@
 
       <p>The LLM's chain-of-thought reasoning maps to symbolic search. Its in-context learning maps to case-based reasoning. Its ability to decompose goals into steps mirrors how humans plan. Researchers at Microsoft and the University of Virginia documented this convergence explicitly: LLM-powered agents are not just neural systems — they are neuro-symbolic systems, and the brain analogy is structural, not metaphorical.</p>
 
+      <h3>The framework gap</h3>
+
+      <p>The industry has invested heavily in the Type 1 side. LangChain, LangGraph, LlamaIndex, Amazon Strands, AutoGen — these frameworks are mature, well-documented, and widely deployed. They orchestrate LLM calls, manage memory, connect tools, and wire multi-agent workflows. The Type 1 problem is largely solved at the infrastructure level.</p>
+
+      <p>The Type 2 side has no equivalent. There is no mainstream framework for encoding business rules into a verifiable symbolic knowledge base, connecting it to an LLM-driven agent, and letting human experts refine it over time. The ATA research points to what this could look like — formal logic, theorem provers, human-correctable rule bases — but it has not yet translated into production tooling. That is the gap. And it is where the next generation of agent frameworks will be built.</p>
+
       <h3>Humans in the loop teach, not supervise</h3>
 
       <p>Teams treat human-in-the-loop as a safety net. They add it after something goes wrong. That is the wrong mental model, and it produces the wrong architecture.</p>
 
-      <p>Human oversight is a learning channel. Every time a human reviews a decision, approves an action, or corrects an output, the agent receives signal about what good judgement looks like in that domain. Design the agent to capture and internalize that signal, and oversight makes the agent better over time. Design it as a fallback, and the queue never shrinks.</p>
+      <p>Human oversight is a learning channel. Every time a human reviews a decision, approves an action, or corrects an output, the agent receives signal about what good judgment looks like in that domain. Design the agent to capture and internalize that signal, and oversight makes the agent better over time. Design it as a fallback, and the queue never shrinks.</p>
 
-      <p>Research on Autonomous Trustworthy Agents (ATA) makes this concrete. The system separates knowledge ingestion — where an LLM formalizes business rules into a symbolic knowledge base — from task processing, where a deterministic engine applies those rules. Human experts reviewed and corrected the formalized knowledge base. Accuracy rose 14 percentage points, surpassing GPT-5 on insurance claims processing. The experts did not patch failures. They encoded their judgement into the agent's foundation.</p>
+      <p>Research on Autonomous Trustworthy Agents (ATA) makes this concrete. The system separates knowledge ingestion — where an LLM formalizes business rules into a symbolic knowledge base — from task processing, where a deterministic engine applies those rules. Human experts reviewed and corrected the formalized knowledge base. Accuracy rose 14 percentage points, surpassing GPT-5 on insurance claims processing. The experts did not patch failures. They encoded their judgment into the agent's foundation.</p>
 
       <h3>Memory completes the picture</h3>
 
@@ -58,6 +64,12 @@
       <p>The research community identifies meta-cognition as the next hard problem — agents that recognize their own uncertainty and escalate with precision rather than blunt thresholds. That capability closes the last gap between an agent that assists and one that owns.</p>
 
       <p>We are not there yet. But the architecture is sound. Neuro-symbolic agents, with structured human feedback loops, reason the way humans reason and improve the way humans improve. That is what it takes to build agents that own real work.</p>
+
+      <h3>What comes next</h3>
+
+      <p>Three open problems are worth watching closely. First: how do you build the Type 2 layer in practice — a symbolic rule base that a domain expert can inspect, correct, and own? Second: how does an agent know when it does not know something, and stop before it causes damage? Third: if human oversight is a learning channel, how do you design it to shrink over time — so the agent needs less of it the longer it runs?</p>
+
+      <p>Each of these is solvable. None of them has a production framework yet. That is where the next set of posts will go.</p>
 
       <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid #eee;">
 
