@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agents Should Mimic the Human Brain — Srivathsan's Blog</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html" style="text-decoration:none;color:inherit;">Srivathsan's Blog</a></h1>
+    <p class="tagline">AI &amp; Autonomous Agent Designer / Enthusiast</p>
+  </header>
+
+  <main>
+    <article>
+      <h2>Agents Should Mimic the Human Brain</h2>
+      <time>June 2026</time>
+
+      <p>Most teams build agents that answer questions. I think that's the wrong unit of design. An agent should own an end-to-end business function — from input to outcome — the way a skilled employee does. That shift in framing changes every architectural decision that follows.</p>
+
+      <p>It also raises a harder question: what architecture actually supports that level of ownership? The answer is neuro-symbolic AI. And the reason comes down to how the human brain works.</p>
+
+      <h3>The brain runs two systems</h3>
+
+      <p>Cognitive science describes thinking in two modes. System 1 is fast and intuitive — pattern recognition, language, gut feel. System 2 is slow and deliberate — logical reasoning, rule application, planning. A skilled employee uses both, switching fluidly based on what the situation demands.</p>
+
+      <p>AI has historically been one or the other. Neural networks are System 1. They recognize patterns at scale but hallucinate and drift without guardrails. Classical expert systems are System 2. They reason precisely but break on anything outside their encoded rules. Neither alone handles the full range of a real business function.</p>
+
+      <h3>Neuro-symbolic agents use both</h3>
+
+      <p>A neuro-symbolic agent splits the work. The neural sub-system — an LLM — handles perception, language, context, and emergent reasoning. The symbolic sub-system — the agentic workflow — handles task decomposition, rules, memory, and decision logic. Together, they do what neither can alone.</p>
+
+      <p>The LLM's chain-of-thought reasoning maps to symbolic search. Its in-context learning maps to case-based reasoning. Its ability to decompose goals into steps mirrors how humans plan. Researchers at Microsoft and the University of Virginia documented this convergence explicitly: LLM-powered agents are not just neural systems — they are neuro-symbolic systems, and the brain analogy is structural, not metaphorical.</p>
+
+      <h3>Humans in the loop teach, not supervise</h3>
+
+      <p>Teams treat human-in-the-loop as a safety net. They add it after something goes wrong. That is the wrong mental model, and it produces the wrong architecture.</p>
+
+      <p>Human oversight is a learning channel. Every time a human reviews a decision, approves an action, or corrects an output, the agent receives signal about what good judgement looks like in that domain. Design the agent to capture and internalize that signal, and oversight makes the agent better over time. Design it as a fallback, and the queue never shrinks.</p>
+
+      <p>Research on Autonomous Trustworthy Agents (ATA) makes this concrete. The system separates knowledge ingestion — where an LLM formalizes business rules into a symbolic knowledge base — from task processing, where a deterministic engine applies those rules. Human experts reviewed and corrected the formalized knowledge base. Accuracy rose 14 percentage points, surpassing GPT-5 on insurance claims processing. The experts did not patch failures. They encoded their judgement into the agent's foundation.</p>
+
+      <h3>Memory completes the picture</h3>
+
+      <p>An agent that owns a function must remember. The architecture mirrors human memory directly:</p>
+
+      <ul>
+        <li><strong>Short-term memory</strong> — the active context window, what is happening now</li>
+        <li><strong>Long-term memory</strong> — vector databases and knowledge graphs, accumulated over time</li>
+        <li><strong>Episodic memory</strong> — past cases the agent draws on to handle new ones</li>
+      </ul>
+
+      <p>This is not coincidence. It is what allows an agent to improve the longer it works a function — exactly what we expect from a person in the same role.</p>
+
+      <h3>The open problem: knowing what you don't know</h3>
+
+      <p>The research community identifies meta-cognition as the next hard problem — agents that recognize their own uncertainty and escalate with precision rather than blunt thresholds. That capability closes the last gap between an agent that assists and one that owns.</p>
+
+      <p>We are not there yet. But the architecture is sound. Neuro-symbolic agents, with structured human feedback loops, reason the way humans reason and improve the way humans improve. That is what it takes to build agents that own real work.</p>
+
+      <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid #eee;">
+
+      <section class="references">
+        <h3>References</h3>
+        <ol>
+          <li>Xiong et al. (2024) — <a href="https://arxiv.org/html/2407.08516v1" target="_blank">Converging Paradigms: The Synergy of Symbolic and Connectionist AI in LLM-Empowered Autonomous Agents</a>. Microsoft &amp; University of Virginia.</li>
+          <li>Peer &amp; Stabinger (2025) — <a href="https://arxiv.org/html/2510.16381v1" target="_blank">ATA: A Neuro-Symbolic Approach to Implement Autonomous and Trustworthy Agents</a>. Otera.</li>
+          <li>Renkhoff et al. (2024) — <a href="https://arxiv.org/html/2501.05435v1" target="_blank">Neuro-Symbolic AI in 2024: A Systematic Review</a>.</li>
+          <li>Beerepoot et al. (2026) — <a href="https://arxiv.org/html/2601.18833v1" target="_blank">Agentic Business Process Management Systems</a>.</li>
+          <li>— <a href="https://omnithium.hashnode.dev/human-in-the-loop-patterns-for-high-stakes-ai-agent-decisions" target="_blank">Human-in-the-Loop Patterns for High-Stakes AI Agent Decisions</a>.</li>
+          <li>— <a href="https://logiciel.io/blog/human-in-the-loop-agentic-ai-architectures-2026" target="_blank">Human-in-the-Loop Agentic AI Architecture</a>. Logiciel.</li>
+        </ol>
+      </section>
+    </article>
+
+    <p style="margin-top:2rem;"><a href="../index.html">← Back</a></p>
+  </main>
+
+  <footer>
+    <p>© 2026 Srivathsan Aravamudan</p>
+  </footer>
+</body>
+</html>
